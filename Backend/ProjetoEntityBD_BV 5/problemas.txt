@@ -1,0 +1,69 @@
+1 - rodar o projeto na versão superior - primeior copiei arquivo por arquivo, depois descobri como setar uma versão menor á compilação 
+2 - ao rodar, cadastrar livro e usuario deu certo, empréstimo nao, a chave estrangeira passada ao banco da problema 
+	- problema pra "desserialziar"
+	
+3 - tentei recriar o projeot seguindo o tutorial 
+	- o projeto direto do git nao rodou 
+	- criando na minha máquina nao consegui apontar pro index.html do /templates 
+	
+	
+- interface com Vue tem problema de Cors no Post e não consegui liberar no spring 
+
+
+
+
+
+		public Endereco(long id, String endereco, String usuario) {
+			super();
+			this.id = id;
+			this.endereco = endereco;
+			
+	        Optional<Usuario> usuarioGet = usuarioRepository.findById(Long.parseLong(usuario));
+	       
+			this.usuario =  usuarioGet.get();
+		}
+		
+		
+		
+		
+		
+//	public Emprestimo(long id, Usuario usuario, Livro livro, String status) {
+//		super();
+//		this.id = id;
+//		this.usuario = usuario;
+//		this.livro = livro;
+//		this.status = status;
+//	}
+//	@JsonCreator
+//	public Emprestimo(@JsonProperty("id") long id, @JsonProperty("usuario") Usuario usuario,
+//	             @JsonProperty("livro") Livro livro, @JsonProperty("status") String status) {
+//		this.id = id;
+//		this.usuario = usuario;
+//		this.livro = livro;
+//		this.status = status;
+//	}
+//	public Emprestimo() {}
+
+
+
+
+	public Livro () {}
+	public Livro(long id,
+			@NotEmpty(message = "Nome do livro precisa ser preenchido") @Length(min = 1, max = 100, message = "O nome do livro precisa ter menos de 100 letras") String nome,
+			@Digits(integer = 13, fraction = 0, message = "Código isbn precisa ser preenchido com 13 dígitos") BigInteger isbn,
+			@NotEmpty(message = "Nome do autor precisa ser preenchido") String autor,
+			@Length(min = 4, max = 4, message = "O ano de publicação precisa ser válido") @NotEmpty(message = "Ano de publicação precisa ser preenchido") String ano_publicacao,
+			int edicao,
+			@Length(min = 1, max = 20, message = "Descrição do gênero passou do espaço de letras permitido") String genero,
+			int qntd_acervo, List<Emprestimo> emprestimos) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.isbn = isbn;
+		this.autor = autor;
+		this.ano_publicacao = ano_publicacao;
+		this.edicao = edicao;
+		this.genero = genero;
+		this.qntd_acervo = qntd_acervo;
+		this.emprestimos = emprestimos;
+	}
