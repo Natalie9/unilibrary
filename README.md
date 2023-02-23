@@ -14,6 +14,7 @@ DockerCompose para rodar banco `PostgressSQL`
 
 _Feito por:_    
 Natalie Tolentino Serafim
+
 Samuel França da Costa Pedrosa
 
 Apresentação: https://youtube.com/live/la5Awdv4Ur0 
